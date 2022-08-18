@@ -16,7 +16,7 @@ export default class LoginService implements ILoginService {
   async login(email: string, password: string): Promise<string> {
     const user = await this.model.login(email);
 
-    if (!user) throw new ErrorHandler(400, 'Incorrect email or password');
+    if (!user) throw new ErrorHandler(401, 'Incorrect email or password');
 
     validatePassword(password, user.password);
 
