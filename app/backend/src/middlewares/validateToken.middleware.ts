@@ -11,11 +11,12 @@ const secret = process.env.JWT_SECRET || 'jwt_secret';
 
 export const validateTokenMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
+
   if (!authorization) return next(new ErrorHandler(STATUS_NOT_FOUND, MSG_MISSING_TOKEN));
 
-  const { data } = jwt.verify(authorization, secret) as { data: string };
+  const data = jwt.verify(authorization, secret) as { data: jwt.JwtPayload };
 
-  const { role } = JSON.parse(data);
+  const { role } = JSON.parse(JSON.stringify(data));
 
   return res.status(STATUS_SUCCESS).json({ role });
 };

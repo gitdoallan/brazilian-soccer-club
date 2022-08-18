@@ -11,7 +11,7 @@ const loginController = new Controller(loginService);
 
 const router = Router();
 
-router.post('/', validateLoginMiddleware, loginController.login);
 router.get('/validate', validateTokenMiddleware);
+router.post('/', validateLoginMiddleware, loginController.login);
 
 export default router;
