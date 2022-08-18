@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { ILoginService } from '../interfaces/login.interface';
+import { STATUS_SUCCESS } from '../utils/httpStatus';
 
 export default class LoginController {
   constructor(private service: ILoginService) {
@@ -9,6 +10,6 @@ export default class LoginController {
   public login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
     const token = await this.service.login(email, password);
-    return res.status(200).json({ token });
+    return res.status(STATUS_SUCCESS).json({ token });
   };
 }
