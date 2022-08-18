@@ -1,7 +1,8 @@
 import * as express from 'express';
 
 import routes from './routes';
-import errorMiddleware from './middlewares/error';
+
+import { errorMiddleware } from './middlewares/error.middleware';
 
 require('express-async-errors');
 
