@@ -1,4 +1,4 @@
-import ILoginService, { ILoginModel } from '../interfaces/login.interface';
+import { ILoginModel, ILoginService } from '../interfaces/login.interface';
 
 // import generateToken from '../utils/generateToken';
 
@@ -9,18 +9,10 @@ export default class LoginService implements ILoginService {
     this.model = model;
   }
 
-  async login(email: string, password: string): Promise<string> {
+  async login(email: string, _password: string): Promise<string> {
     const user = await this.model.login(email);
 
-    console.log(user);
-
-    if (!user) {
-      throw new Error('notFoundError');
-    }
-
-    if (user && user.password !== password) {
-      throw new Error('validationError');
-    }
+    if (!user) throw new Error('notFoundError');
 
     return 'token';
   }

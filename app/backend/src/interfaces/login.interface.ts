@@ -1,6 +1,6 @@
 import { IUser } from './user.interface';
 
-export default interface ILoginService {
+export interface ILoginService {
   login(email: string, password: string): Promise<string>;
 }
 

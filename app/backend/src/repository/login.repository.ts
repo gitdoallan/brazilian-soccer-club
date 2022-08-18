@@ -9,7 +9,7 @@ export default class LoginRepository implements ILoginModel {
   }
 
   login = async (email: string): Promise<IUser> => {
-    const user = await this.model.findOne({ where: { email } });
+    const user = await this.model.findOne({ where: { email }, raw: true });
 
     return user as IUser;
   };
