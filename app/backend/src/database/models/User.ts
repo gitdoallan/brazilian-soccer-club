@@ -37,4 +37,5 @@ User.init({
   sequelize: db,
   modelName: 'User',
   timestamps: false,
+  tableName: 'users',
 });
