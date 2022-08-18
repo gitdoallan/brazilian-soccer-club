@@ -2,6 +2,7 @@ import { Router } from 'express';
 import Repository from '../repository/login.repository';
 import Controller from '../controllers/login.controller';
 import Service from '../services/login.service';
+import { validateLoginMiddleware } from '../middlewares/validateLogin.middleware';
 
 const loginRepository = new Repository();
 const loginService = new Service(loginRepository);
@@ -9,6 +10,6 @@ const loginController = new Controller(loginService);
 
 const router = Router();
 
-router.post('/', loginController.login);
+router.post('/', validateLoginMiddleware, loginController.login);
 
 export default router;

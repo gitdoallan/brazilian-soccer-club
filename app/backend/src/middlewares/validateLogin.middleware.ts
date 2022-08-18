@@ -5,7 +5,7 @@ export const validateLoginMiddleware = (req: Request, _res: Response, next: Next
   const { email, password } = req.body;
 
   if (!email || !password) {
-    throw new ErrorHandler(400, 'Email or password is missing');
+    return next(new ErrorHandler(400, 'All fields must be filled'));
   }
 
   next();
