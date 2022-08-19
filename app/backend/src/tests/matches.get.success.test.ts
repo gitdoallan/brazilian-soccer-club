@@ -40,4 +40,12 @@ describe('Endpoint /matches SUCCESSFUL requisition', () => {
     expect(result).to.deep.equals(MOCK_MATCHES);
     expect(status).to.equals(STATUS_SUCCESS);
   });
+  it('Returns an array of matches in progress', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .get('/matches?inProgress=true')
+      .send();
+    const { status } = chaiHttpResponse;
+    expect(status).to.equals(STATUS_SUCCESS);
+  });
 });

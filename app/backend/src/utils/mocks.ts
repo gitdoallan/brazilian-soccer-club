@@ -33,7 +33,7 @@ export const MOCK_MATCHES = [
     homeTeamGoals: 1,
     awayTeam: 8,
     awayTeamGoals: 1,
-    inProgress: false,
+    inProgress: true,
     teamHome: {
       teamName: 'São Paulo',
     },
