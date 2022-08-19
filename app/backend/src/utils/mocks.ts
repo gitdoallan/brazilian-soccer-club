@@ -10,6 +10,11 @@ export const MOCK_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNl
 
 export const INVALID_TOKEN = 'INVALID_TOKEN';
 
+export const MOCK_TEAM_BY_ID = {
+  id: 1,
+  teamName: 'Avaí/Kindermann',
+};
+
 export const MOCK_TEAMS = [
   {
     id: 1,
