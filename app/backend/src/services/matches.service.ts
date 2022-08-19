@@ -9,4 +9,9 @@ export default class MatchesService implements IMatchesMethods {
     const results = await this.model.getAll();
     return results;
   }
+
+  async inProgress(): Promise<IMatches[]> {
+    const results = await this.model.inProgress();
+    return results;
+  }
 }
