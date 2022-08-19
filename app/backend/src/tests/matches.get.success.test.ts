@@ -45,6 +45,7 @@ describe('Endpoint /matches SUCCESSFUL requisition', () => {
       .request(app)
       .get('/matches?inProgress=true')
       .send();
+      
     const { status } = chaiHttpResponse;
     expect(status).to.equals(STATUS_SUCCESS);
   });
