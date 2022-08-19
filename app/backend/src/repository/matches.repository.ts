@@ -34,4 +34,9 @@ export default class MatchesRepository implements IMatchesMethods {
     const results = await this.model.update({ inProgress: false }, { where: { id } });
     return results;
   };
+
+  findAndCountById = async (id: number[]) => {
+    const results = await this.model.findAndCountAll({ where: { id } });
+    return results;
+  };
 }

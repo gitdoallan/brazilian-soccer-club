@@ -24,4 +24,5 @@ export interface IMatchesMethods {
   inProgress(progress: boolean): any;
   saveMatch(match: IMatches): any;
   finishMatch(id: number): any;
+  findAndCountById(id: number[]): any;
 }

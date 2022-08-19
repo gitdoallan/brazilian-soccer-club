@@ -5,3 +5,4 @@ export const MSG_MISSING_TOKEN = 'Token not found';
 export const MSG_TEAM_NOT_FOUND = 'Team not found';
 export const MSG_FINISH_MATCH = 'Finished';
 export const MSG_SAME_TEAM = 'It is not possible to create a match with two equal teams';
+export const MSG_TEAM_ID_NOT_FOUND = 'There is no team with such id!';

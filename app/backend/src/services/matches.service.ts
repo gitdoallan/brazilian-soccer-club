@@ -1,4 +1,7 @@
 import { IMatchesMethods, IMatches } from '../interfaces/matches.interface';
+import { ErrorHandler } from '../utils/ErrorHandler';
+import { STATUS_NOT_FOUND } from '../utils/httpStatus';
+import { MSG_TEAM_ID_NOT_FOUND } from '../utils/returnedMessages';
 
 export default class MatchesService implements IMatchesMethods {
   constructor(private model: IMatchesMethods) {
@@ -15,7 +18,15 @@ export default class MatchesService implements IMatchesMethods {
     return results;
   }
 
+  async findAndCountById(id: number[]): Promise<{ count: number, rows: IMatches[] }> {
+    const results = await this.model.findAndCountById(id);
+    if (results.count < 2) throw new ErrorHandler(STATUS_NOT_FOUND, MSG_TEAM_ID_NOT_FOUND);
+    return results;
+  }
+
   async saveMatch(match: IMatches): Promise<IMatches> {
+    const { homeTeam, awayTeam } = match;
+    await this.findAndCountById([homeTeam, awayTeam]);
     const results = await this.model.saveMatch(match);
     return results;
   }
