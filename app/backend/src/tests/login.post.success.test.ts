@@ -35,15 +35,8 @@ describe('Endpoint /login SUCCESSFUL requisition', () => {
       .post('/login')
       .send({ email: 'admin@admin.com', password: 'secret_admin' });
     const { token } = chaiHttpResponse.body;
-    expect(token).to.be.a('string');
-  });
-
-  it('Status code is 200', async () => {
-    chaiHttpResponse = await chai
-      .request(app)
-      .post('/login')
-      .send({ email: 'admin@admin.com', password: 'secret_admin' });
     const { status } = chaiHttpResponse;
     expect(status).to.be.equal(STATUS_SUCCESS);
+    expect(token).to.be.a('string');
   });
 });

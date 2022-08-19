@@ -26,15 +26,8 @@ describe('Endpoint /login/validate SUCCESSFUL requisition', () => {
       .send();
 
     const { role } = chaiHttpResponse.body;
-    expect(role).to.equals('admin');
-  });
-  it('Status code is 200', async () => {
-    chaiHttpResponse = await chai
-      .request(app)
-      .get('/login/validate')
-      .set('Authorization', MOCK_TOKEN)
-      .send();
     const { status } = chaiHttpResponse;
     expect(status).to.be.equal(STATUS_SUCCESS);
+    expect(role).to.equals('admin');
   });
 });

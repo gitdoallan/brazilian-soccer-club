@@ -31,6 +31,15 @@ describe('Endpoint /login FAILED requisition', () => {
       expect(message).to.equal(MSG_FIELDS_MISSING);
       expect(status).to.equal(STATUS_BAD_REQUEST);
     });
-
+    it('Password cannot be empty', async () => {
+      chaiHttpResponse = await chai
+        .request(app)
+        .post('/login')
+        .send({ email: 'admin@admin.com', password: '' });
+      const { message } = chaiHttpResponse.body;
+      const { status } = chaiHttpResponse;
+      expect(message).to.equal(MSG_FIELDS_MISSING);
+      expect(status).to.equal(STATUS_BAD_REQUEST);
+    });
   });
 });
