@@ -11,7 +11,17 @@ export interface IMatches {
   teamAway: ITeams;
 }
 
+export interface ISaveMatch {
+  homeTeam: number;
+  awayTeam: number;
+  homeTeamGoals: number;
+  awayTeamGoals: number;
+  inProgress: boolean;
+}
+
 export interface IMatchesMethods {
   getAll(): any;
   inProgress(progress: boolean): any;
+  saveMatch(match: IMatches): any;
+  finishMatch(id: number): any;
 }

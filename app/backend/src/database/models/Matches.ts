@@ -24,7 +24,6 @@ Matches.init({
   },
   homeTeamGoals: {
     type: DataTypes.INTEGER,
-    allowNull: false,
   },
   awayTeam: {
     type: DataTypes.INTEGER,
@@ -32,11 +31,9 @@ Matches.init({
   },
   awayTeamGoals: {
     type: DataTypes.INTEGER,
-    allowNull: false,
   },
   inProgress: {
     type: DataTypes.BOOLEAN,
-    allowNull: false,
   },
 
 }, {

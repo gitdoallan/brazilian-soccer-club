@@ -3,3 +3,4 @@ export const MSG_INVALID_FIELDS = 'Incorrect email or password';
 export const MSG_INVALID_TOKEN = 'Invalid token';
 export const MSG_MISSING_TOKEN = 'Token not found';
 export const MSG_TEAM_NOT_FOUND = 'Team not found';
+export const MSG_FINISH_MATCH = 'Finished';

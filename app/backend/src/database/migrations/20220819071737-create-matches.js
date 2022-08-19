@@ -20,7 +20,6 @@ module.exports = {
       home_team_goals: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
-        allowNull: false
       },
       away_team: {
         type: Sequelize.INTEGER,
@@ -35,12 +34,10 @@ module.exports = {
       away_team_goals: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
-        allowNull: false
       },
       in_progress: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false,
-        allowNull: false
+        defaultValue: true,
       },
     });
   },
