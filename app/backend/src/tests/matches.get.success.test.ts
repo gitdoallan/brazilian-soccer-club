@@ -48,4 +48,12 @@ describe('Endpoint /matches SUCCESSFUL requisition', () => {
     const { status } = chaiHttpResponse;
     expect(status).to.equals(STATUS_SUCCESS);
   });
+  it('Returns an array of matches that are not in progress', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .get('/matches?inProgress=false')
+      .send();
+    const { status } = chaiHttpResponse;
+    expect(status).to.equals(STATUS_SUCCESS);
+  });
 });
