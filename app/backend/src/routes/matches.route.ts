@@ -13,5 +13,6 @@ const router = Router();
 router.get('/', matchesController.getAll);
 router.post('/', validateMatchMiddleware, matchesController.saveMatch);
 router.patch('/:id/finish', matchesController.finishMatch);
+router.patch('/:id', matchesController.updateMatch);
 
 export default router;

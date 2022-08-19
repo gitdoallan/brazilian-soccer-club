@@ -1,7 +1,7 @@
 import Matches from '../database/models/Matches';
 import Teams from '../database/models/Teams';
 
-import { IMatchesMethods, ISaveMatch } from '../interfaces/matches.interface';
+import { IMatchesMethods, ISaveMatch, IUpdateMatch } from '../interfaces/matches.interface';
 
 export default class MatchesRepository implements IMatchesMethods {
   constructor(private model = Matches) {
@@ -37,6 +37,11 @@ export default class MatchesRepository implements IMatchesMethods {
 
   findAndCountById = async (id: number[]) => {
     const results = await this.model.findAndCountAll({ where: { id } });
+    return results;
+  };
+
+  updateMatch = async (id: number, match: IUpdateMatch) => {
+    const results = await this.model.update(match, { where: { id } });
     return results;
   };
 }

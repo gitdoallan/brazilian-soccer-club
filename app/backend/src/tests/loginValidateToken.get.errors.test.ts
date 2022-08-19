@@ -26,15 +26,4 @@ describe('Endpoint /login/validate FAILED requisition', () => {
     const { status } = chaiHttpResponse;
     expect(status).to.be.equal(STATUS_NOT_FOUND);
   });
-
-  it('Token is invalid', async () => {
-    chaiHttpResponse = await chai
-      .request(app)
-      .get('/login/validate')
-      .set('Authorization', INVALID_TOKEN)
-      .send();
-
-    const { status } = chaiHttpResponse;
-    expect(status).to.be.equal(STATUS_INTERNAL_SERVER_ERROR);
-  });
 });

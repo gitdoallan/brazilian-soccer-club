@@ -35,4 +35,9 @@ export default class MatchesService implements IMatchesMethods {
     const results = await this.model.finishMatch(id);
     return results;
   }
+
+  async updateMatch(id: number, match: IMatches): Promise<IMatches> {
+    const results = await this.model.updateMatch(id, match);
+    return results;
+  }
 }

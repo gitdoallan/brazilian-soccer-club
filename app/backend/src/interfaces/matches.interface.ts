@@ -19,10 +19,16 @@ export interface ISaveMatch {
   inProgress: boolean;
 }
 
+export interface IUpdateMatch {
+  homeTeamGoals: number;
+  awayTeamGoals: number;
+}
+
 export interface IMatchesMethods {
   getAll(): any;
   inProgress(progress: boolean): any;
   saveMatch(match: IMatches): any;
   finishMatch(id: number): any;
   findAndCountById(id: number[]): any;
+  updateMatch(id: number, match: IUpdateMatch): any;
 }

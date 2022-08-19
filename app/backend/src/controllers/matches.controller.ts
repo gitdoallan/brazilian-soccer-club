@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { IMatchesMethods } from '../interfaces/matches.interface';
 import { STATUS_SUCCESS, STATUS_CREATED } from '../utils/httpStatus';
-import { MSG_FINISH_MATCH } from '../utils/returnedMessages';
+import { MSG_FINISH_MATCH, MSG_MATCH_INFO_UPDATED } from '../utils/returnedMessages';
 
 export default class MatchesController {
   constructor(private service: IMatchesMethods) {
@@ -35,5 +35,16 @@ export default class MatchesController {
     const { id } = req.params;
     await this.service.finishMatch(+id);
     return res.status(STATUS_SUCCESS).json({ message: MSG_FINISH_MATCH });
+  };
+
+  public updateMatch = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+    const match: any = {
+      homeTeamGoals,
+      awayTeamGoals,
+    };
+    await this.service.updateMatch(+id, match);
+    return res.status(STATUS_SUCCESS).json({ message: MSG_MATCH_INFO_UPDATED });
   };
 }
