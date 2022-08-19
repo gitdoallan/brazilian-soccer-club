@@ -9,7 +9,8 @@ export default class MatchesController {
 
   public getAll = async (req: Request, res: Response) => {
     if (req.query.inProgress) {
-      const results = await this.service.inProgress();
+      const bool = (req.query.inProgress === 'true');
+      const results = await this.service.inProgress(bool);
       return res.status(STATUS_SUCCESS).json(results);
     }
     const result = await this.service.getAll();

@@ -16,8 +16,8 @@ export default class MatchesRepository implements IMatchesMethods {
     return results;
   };
 
-  inProgress = async () => {
-    const results = await this.model.findAll({ where: { inProgress: true },
+  inProgress = async (progress: boolean) => {
+    const results = await this.model.findAll({ where: { inProgress: progress },
       include: [
         { model: Teams, as: 'teamHome', attributes: { exclude: ['id'] } },
         { model: Teams, as: 'teamAway', attributes: { exclude: ['id'] } }],

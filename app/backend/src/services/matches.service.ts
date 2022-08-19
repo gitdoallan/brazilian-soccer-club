@@ -10,8 +10,8 @@ export default class MatchesService implements IMatchesMethods {
     return results;
   }
 
-  async inProgress(): Promise<IMatches[]> {
-    const results = await this.model.inProgress();
+  async inProgress(progress: boolean): Promise<IMatches[]> {
+    const results = await this.model.inProgress(progress);
     return results;
   }
 }

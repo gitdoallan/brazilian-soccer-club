@@ -13,5 +13,5 @@ export interface IMatches {
 
 export interface IMatchesMethods {
   getAll(): any;
-  inProgress(): any;
+  inProgress(progress: boolean): any;
 }
