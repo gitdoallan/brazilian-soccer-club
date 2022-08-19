@@ -7,7 +7,6 @@ import { STATUS_SUCCESS } from '../utils/httpStatus';
 import { MOCK_TOKEN } from '../utils/mocks';
 
 import { app } from '../app';
-import User from '../database/models/User';
 
 import { Response } from 'superagent';
 
