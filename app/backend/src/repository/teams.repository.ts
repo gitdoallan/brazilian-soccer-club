@@ -11,4 +11,9 @@ export default class TeamsRepository implements ITeams {
     const results = await this.model.findAll();
     return results;
   };
+
+  getById = async (id: number) => {
+    const result = await this.model.findOne({ where: { id } });
+    return result;
+  };
 }
