@@ -30,6 +30,15 @@ export default class MatchesRepository implements IMatchesMethods {
     return results;
   };
 
+  finishedMatches = async (id: number) => {
+    const results = await this.model.findAll({ where: { inProgress: false, homeTeam: id },
+      include: [
+        { model: Teams, as: 'teamHome', attributes: { exclude: ['id'] } },
+        { model: Teams, as: 'teamAway', attributes: { exclude: ['id'] } }],
+    });
+    return results;
+  };
+
   finishMatch = async (id: number) => {
     const results = await this.model.update({ inProgress: false }, { where: { id } });
     return results;
